@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<constant name="struts.custom.i18n.resources" value="messages" />
+	<constant name="struts.i18n.encoding" value="utf-8" />
+	<constant name="struts.devMode" value="true" />
+	<!-- 设置整个工程上传文件的最大值，如果超出这个值则不会对文件进行处理 -->
+	<constant name="struts.multipart.maxSize" value="900000000" />
+
+
+	<!-- result-types interceptors default-interceptor-ref default-action-ref default-class-ref global-results 
+		global-allowed-methods global-exception-mappings action -->
+	<package name="default" namespace="/" extends="struts-default">
+
+		<action name="upload" class="action.UploadAction" method="uploadFile">
+			<result name="success">/success.jsp</result>
+			<result name="input">/success.jsp</result>
+			<result name="error">/success.jsp</result>
+		</action>
+
+		<action name="uploadimg" class="action.ImageCutAction" method="cutImg">
+			<result name="error">/pic.jsp</result>
+			<result name="success">/pic_success.jsp</result>
+		</action>
+
+
+		<action name="auth">
+			<result>/success.jsp</result>
+		</action>
+
+
+	</package>
+</struts>
